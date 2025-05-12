@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Hero Section</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #010718, #021c33);
+      color: white;
+    }
+
+   
+    .navbar {
+      background-color: #050d25;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff;
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+      margin-left: 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #00f0ff !important;
+    }
+
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ffff;
+    }
+
+    .hero p {
+      color: #ccc;
+      max-width: 500px;
+    }
+    a {
+      color: #fff;
+      font-size: 2rem;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    
+
+    .social-icons a {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      border: 2px solid #00ffff;
+      padding: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: #00ffff;
+      color: #d3d5d6;
+    }
+
+    .btn-glow {
+      margin-top: 20px;
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 40px rgba(0, 242, 254, 1);
+      transform: translateY(-2px);
+    }
+
+    .glow-img {
+      
+      border-radius: 50%;
+      padding: 10px;
+      background: radial-gradient(circle, #00f2fe, #4facfe, #a64bf4);
+      width: 300px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .glow-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #061b29;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        text-align: center;
+      }
+
+      .glow-img {
+        margin: 30px auto 0;
+      }
+    }
+    
+  .about-section {
+    background-color: #0d1b2a; 
+    min-height: 100vh;
+  }
+
+  .glow-img-wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(135deg, #00f0ff, #ff00ff);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+  }
+
+  .glow-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 5px solid #0d1b2a;
+    object-fit: cover;
+  }
+
+  .about-section h2,
+  .about-section h4,
+  .about-section p {
+    color: white;
+  }
+  
+  .skills-section {
+    background-color: #0d1b2a;
+    min-height: 100vh;
+  }
+
+  .progress {
+    height: 10px;
+    background-color: #111;
+  }
+
+  .progress-bar {
+    font-size: 0.75rem;
+    text-align: right;
+    padding-right: 5px;
+  }
+
+  .circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+
+  .circle svg {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+  }
+
+  .circle circle {
+    fill: none;
+    stroke-width: 10;
+    stroke-linecap: round;
+  }
+
+  .circle circle:nth-child(1) {
+    stroke: #111;
+  }
+
+  .circle circle:nth-child(2) {
+    stroke: #00ffff;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    animation: progressAnim 2s forwards;
+  }
+
+  .circle .number {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .circle p {
+    margin-top: 10px;
+    color: #ccc;
+  }
+
+  @keyframes progressAnim {
+    to {
+      stroke-dashoffset: calc(314 - (314 * var(--percent)) / 100);
+    }
+  }
+
+  .circle[data-percent="90"] circle:nth-child(2) {
+    stroke-dashoffset: calc(314 - 314 * 0.9);
+  }
+
+  .circle[data-percent="65"] circle:nth-child(2) {
+    stroke-dashoffset: calc(314 - 314 * 0.65);
+  }
+
+  .circle[data-percent="75"] circle:nth-child(2) {
+    stroke-dashoffset: calc(314 - 314 * 0.75);
+  }
+
+  .circle[data-percent="85"] circle:nth-child(2) {
+    stroke-dashoffset: calc(314 - 314 * 0.85);
+  }
+  
+  .flip-card {
+    background-color: transparent;
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .flip-card-back {
+    background-color: rgb(195, 55, 143);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .flip-card h4 {
+    font-weight: bold;
+  }
+
+  .flip-card p {
+    font-size: 0.95rem;
+  }
+
+  
+  .contact-section {
+      padding: 60px 0;
+    }
+
+    .contact-left h3 {
+      font-weight: bold;
+    }
+
+    .contact-left h3 span {
+      color: #00ffff;
+    }
+
+    .contact-left p,
+    .contact-left h6 {
+      color: #ccc;
+    }
+
+    .contact-info i {
+      color: #00ffff;
+      margin-right: 10px;
+    }
+
+    .social-icons a {
+      color: #00ffff;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      display: inline-block;
+      border: 2px solid #00ffff;
+      padding: 8px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: #00ffff;
+      color: #061b29;
+    }
+
+    .form-control {
+      background-color: #333;
+      border: none;
+      color: white;
+    }
+
+    .form-control::placeholder {
+      color: #aaa;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      background-color: #444;
+      color: white;
+    }
+
+    .btn-glow {
+      background: linear-gradient(90deg, #00f2fe, #4facfe);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+      transition: all 0.3s ease-in-out;
+      width: 100%;
+    }
+
+    .btn-glow:hover {
+      box-shadow: 0 0 40px rgba(0, 242, 254, 1);
+      transform: translateY(-2px);
+    }
+
+
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#">Portfolio.</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Text Section -->
+      <div class="col-md-6">
+        <h1>Hello, It's Me</h1>
+        <h2>Gali Lakshmi</h2>
+        <h3>And I'm a <span style="color:#00ffff;">Student</span></h3>
+        
+        <div class="social-icons my-3">
+          <a href="https://github.com/gali1416"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/gali-lakshmi-54a561308/"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+          <a href="G LAKSHMI RESUME.pdf"><i class="bi bi-file-earmark"></i></a>
+        
+        </div>
+        
+        <a href="#about" class="btn btn-info text-white px-4 mt-3">More About </a>
+      </div>
+
+      <!-- Image Section -->
+     
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about" class="about-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+     
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <div class="glow-img-wrapper">
+          <img src="https://www.shutterstock.com/image-vector/cute-anime-kawaii-girl-cartoon-260nw-2297419213.jpg" alt="Profile" class="img-fluid rounded-circle glow-img">
+        </div>
+      </div>
+
+      <div class="col-md-7 text-white">
+        <h2 class="fw-bold">About <span class="text-info">Me</span></h2>
+        <h4 class="mb-3">Introduction!</h4>
+        <p>
+          I am a student of NEC College. I am studying B.Tech 4th year in Computer Science and Engineering at Narasaraopeta Engineering College.<br>
+        Academic Profile.
+        </p>
+        <p>
+          Throughout my career, I have developed a deep understanding of user experience (UX) and user interface (UI) principles.
+          I strive to create intuitive and seamless browsing experiences, aiming for both visual appeal and enjoyable interaction.
+          Name of the Institution: Narasaraopeta Engineering College (NEC)Location: Narasaraopeta, Guntur District, Andhra Pradesh, 
+          IndiaCourse: Bachelor of Technology (B.Tech)Branch: Computer Science and Engineering (CSE)
+          Year of Study: 4th Year (Final Year)Affiliation: Affiliated to Jawaharlal Nehru Technological University Kakinada (JNTUK)
+          Accreditation: NAAC 'A+' Grade, NBA Accredited Programs
+        </p>
+        <a href="#projects" class="btn btn-info text-white px-4 mt-3">More About Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" class="skills-section py-5">
+  <div class="container text-white">
+    <h2 class="text-center fw-bold mb-5">My <span class="text-info">Skills</span></h2>
+    <div class="row">
+     
+      <div class="col-md-6">
+        <h4 class="mb-4 text-center">Technical Skills</h4>
+        <div class="mb-4">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://img.icons8.com/color/25/html-5.png" class="me-2" />
+            <span>HTML</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 90%;">90%</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://img.icons8.com/color/25/css3.png" class="me-2" />
+            <span>CSS</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 60%;">60%</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://img.icons8.com/color/25/javascript.png" class="me-2" />
+            <span>JavaScript</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 85%;">85%</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <div class="d-flex align-items-center mb-2">
+            <img src="https://img.icons8.com/color/25/python--v1.png" class="me-2" />
+            <span>Python</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 50%;">50%</div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="col-md-6">
+        <h4 class="mb-4 text-center">Professional Skills</h4>
+        <div class="row text-center">
+        
+          <div class="col-6 mb-4">
+            <div class="circle" data-percent="90">
+              <svg>
+                <circle cx="60" cy="60" r="50"></circle>
+                <circle cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="number">90%</div>
+              <p>Creativity</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="circle" data-percent="65">
+              <svg>
+                <circle cx="60" cy="60" r="50"></circle>
+                <circle cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="number">65%</div>
+              <p>Communication</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="circle" data-percent="75">
+              <svg>
+                <circle cx="60" cy="60" r="50"></circle>
+                <circle cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="number">75%</div>
+              <p>Problem Solving</p>
+            </div>
+          </div>
+          <div class="col-6 mb-4">
+            <div class="circle" data-percent="85">
+              <svg>
+                <circle cx="60" cy="60" r="50"></circle>
+                <circle cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="number">85%</div>
+              <p>Teamwork</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="project" class="py-5" style="background-color: #0d1b2a;">
+  <div class="container text-white">
+    <h2 class="text-center fw-bold mb-5">My <span class="text-info">Projects</span></h2>
+    <div class="row justify-content-center">
+
+      <div class="col-md-4 mb-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://media.designcafe.com/wp-content/uploads/2022/07/15170350/luxury-home-design-on-budget.jpg" class="img-fluid" alt="UI/UX Design">
+            </div>
+            <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center p-3">
+              <h4 class="text-info">Interior Design</h4>
+              <p>Interior designing is the beautification of living space and planning it in a manner that contributes to its functionality. Interior designing is not limited to one’s living space, the interiors of professional working spaces or industrial spaces can also be efficiently designed to improve functionality and streamline business operations. 
+
+                .</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="col-md-4 mb-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/b96b0cb1-35d9-471e-b09e-6807dee7226d/c1ce9958-6141-43fa-8953-5ba48554fbcc.png" class="img-fluid" alt="Website Development">
+            </div>
+            <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center p-3">
+              <h4 class="text-info">Awaraness of Mobiles </h4>
+              <p>Awareness of mobile phone use among students involves understanding both the benefits and drawbacks of these devices. While they offer valuable tools for learning, communication, and organization, excessive use can lead to distractions, academic decline, and potential health issues. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+      <div class="col-md-4 mb-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="https://www.studyiq.com/articles/wp-content/uploads/2023/06/23165311/Public-Distribution-System.jpg" class="img-fluid" alt="App Design">
+            </div>
+            <div class="flip-card-back d-flex flex-column justify-content-center align-items-center text-center p-3">
+              <h4 class="text-info">Public-Distribution-System</h4>
+              <p>The Public Distribution System (PDS) is a critical food security measure in India, providing essential commodities, especially food grains, to eligible individuals at subsidized rates. It plays a vital role in managing scarcity, ensuring access to food for urban consumers, and containing price increases. The system is managed by state governments, who are responsible for allocation, identifying eligible families, issuing ration cards, and supervising fair price shops. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row">
+      <!-- Left Side -->
+      <div class="col-md-6 contact-left mb-4">
+        <h3>Contact <span>Me</span></h3>
+        <h6>Let's Work Together</h6>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum nobis possimus tenetur quidem fugit? Dolorum cupiditate deleniti perspiciatis ea soluta repellat dignissimos eum assumenda, iusto quas nulla ullam. Quaerat, maiores!</p>
+        <div class="contact-info mb-3">
+          <p><i class="bi bi-send-fill"></i> contact@gmail.com</p>
+          <p><i class="bi bi-telephone-fill"></i> 0123456789</p>
+        </div>
+        <div class="social-icons mt-3">
+          <a href="https://github.com/gali1416"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/gali-lakshmi-54a561308/"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+          <a href="GALI Lakshmi.pdf"><i class="bi bi-file-earmark"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Side: Form -->
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Enter Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Enter Your Email" required>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Enter Your Subject">
+          </div>
+          <div class="mb-3">
+            <textarea rows="4" class="form-control" placeholder="Enter Your Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-glow">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var options = {
+      strings: ["Web Developer", "UI/UX Designer", "App Developer"], // Add more titles as needed
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 1000,
+      loop: true
+    };
+    
+    var typed = new Typed(".text", options);
+  });
+  
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
