@@ -53,6 +53,7 @@
       color: #ccc;
       max-width: 500px;
     }
+    
     a {
       color: #fff;
       font-size: 2rem;
@@ -96,17 +97,15 @@
     }
 
     .glow-img {
-      
       border-radius: 50%;
       padding: 10px;
       background: radial-gradient(circle, #00f2fe, #4facfe, #a64bf4);
-      width: 300px;
-      height: 300px;
+      width: 100px;
+      height: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
     .glow-img img {
       width: 100%;
       height: 100%;
@@ -114,14 +113,25 @@
       border-radius: 50%;
       border: 5px solid #061b29;
     }
-
-    @media (max-width: 768px) {
+    .image img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00f2fe;
+      opacity: 0;
+      animation: fadeInImage 2s forwards;
+    }
+    @keyframes fadeInImage {
+      to {
+        opacity: 1;
+      }
+    }
+    @media (max-width: 600px) {
       .hero {
         text-align: center;
       }
-
       .glow-img {
-        margin: 30px auto 0;
+        margin: 20px auto 0;
       }
     }
     
@@ -356,6 +366,7 @@
       box-shadow: 0 0 40px rgba(0, 242, 254, 1);
       transform: translateY(-2px);
     }
+    
 
 
   </style>
@@ -382,28 +393,25 @@
 </nav>
 
 
-<section class="hero">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Text Section -->
-      <div class="col-md-6">
-        <h1>Hello, It's Me</h1>
-        <h2>Gali Lakshmi</h2>
-        <h3>And I'm a <span style="color:#00ffff;">Student</span></h3>
-        
-        <div class="social-icons my-3">
-          <a href="https://github.com/gali1416"><i class="bi bi-github"></i></a>
+<section id="hero" class="hero d-flex align-items-center justify-content-center text-center container py-5">
+  <div class="row align-items-center justify-content-center">
+    <div class="col-lg-6 col-md-10">
+      <h1 class="display-4 fw-bold mb-3">I'm Gali Lakshmi</h1>
+      <h2 class="mb-3">Web Developer & Designer</h2>
+      <p class="lead mb-4">
+        I specialize in creating beautiful, functional websites and web apps.
+      </p>
+      <div class="social-icons mb-3">
+       <a href="https://github.com/gali1416"><i class="bi bi-github"></i></a>
           <a href="https://www.linkedin.com/in/gali-lakshmi-54a561308/"><i class="bi bi-linkedin"></i></a>
           <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
-          <a href="G LAKSHMI RESUME.pdf"><i class="bi bi-file-earmark"></i></a>
-        
-        </div>
-        
-        <a href="#about" class="btn btn-info text-white px-4 mt-3">More About </a>
+          <a href="GALI Lakshmi.pdf"><i class="bi bi-file-earmark"></i></a> 
       </div>
-
-      <!-- Image Section -->
-     
+      <a href="#about" class="btn btn-glow">About me</a>
+    </div>
+    <div class="col-lg-6 d-none d-lg-block">
+      <div class="glow-img">
+        <img src="https://png.pngtree.com/png-vector/20241024/ourmid/pngtree-cute-cartoon-girl-with-big-eyes-looking-up-png-image_14149087.png" alt="Profile Image" />
       </div>
     </div>
   </div>
